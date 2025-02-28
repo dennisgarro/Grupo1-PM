@@ -1,55 +1,37 @@
 import java.util.Scanner;
 
 public class Menu {
-
     public static void main(String[] args) {
-        try (Scanner sc = new Scanner(System.in)) {
-            int opt = 0, d = 0;
-            boolean bandera = true;
-            while (bandera) {
-                System.out.println("Ingrese el punto que desea validar");
-                while (!sc.hasNextInt()) {
-                    System.out.println("por favor ingrese un dato numerico");
-                    sc.next();
-                }
-                opt = sc.nextInt();
-                System.out.println("ingrese la dimension de la matriz");
-                while (!sc.hasNextInt()) {
-                    System.out.println("la dimension de la matriz debe ser numerica");
-                    sc.next();
-                }
-                d = sc.nextInt();
-                switch (opt) {
-                    case 1:
-                        Punto1 p1 = new Punto1();
-                        p1.P1(d, opt);
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        break;
-                    case 5:
-                        Punto5 p5 = new Punto5();
-                        p5.p5(d, opt);
-                        break;
-                    case 6:
-                        break;
-                    case 7:
-                        break;
-                    case 8:
-                        break;
-                    case 9:
-                        break;
-                    case 10:
-                        break;
+        Scanner sc = new Scanner(System.in);
+        int opcion = 0;
+        int dimension = 0;
+        System.out.println("Ingrese la dimension de la matriz");
+        while (!sc.hasNextInt()) {
+            System.out.println("la dimension debe ser un numero entero");
+            sc.next();
+        }
+        dimension = sc.nextInt();
+        boolean continuar = true;
+        while (continuar) {
+            System.out.println("Ingrese la opcion que desea realizar");
+            while (!sc.hasNextInt()) {
+                System.out.println("la dimension debe ser un numero entero");
+                sc.next();
+            }
+            opcion = sc.nextInt();
 
-                    default:
-                        break;
-                }
+            switch (opcion) {
+                case 1:
+                //juan galeano
+                    Punto2 objP2 = new Punto2();
+                    objP2.P2(dimension);
+                    break;
+                default:
+                    System.out.println("hasta pronto");
+                    continuar = false;
+                    break;
             }
         }
-
     }
+
 }
